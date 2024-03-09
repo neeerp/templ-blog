@@ -9,6 +9,7 @@ templ Page(page_title ...string) {
 			@title(page_title)
 		</head>
 		<body>
+			@nav()
 			{ children... }
 		</body>
 	</html>
@@ -24,4 +25,11 @@ templ title(page_title []string) {
 			{ strings.Join(page_title[:], "") }
 		}
 	</title>
+}
+
+templ nav() {
+	<nav>
+		<a href="/">Home</a>
+		<a href="/todos">TODO List</a>
+	</nav>
 }
