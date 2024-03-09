@@ -1,18 +1,20 @@
 package templates
 
+import "github.com/neeerp/templ-blog/handlers"
+
 templ TodoList() {
 	@Page("TODO") {
 		<h1>Welcome to my TODO List!</h1>
 		<div id="todos">
-			@todo("Go outside")
-			@todo("Touch Grass")
-			@todo("Eat")
+			for _, note := range handlers.Get() {
+				@todo(note)
+			}
 		</div>
 	}
 }
 
-templ todo(todo_text string) {
+templ todo(todo_note handlers.Todo) {
 	<div>
-		<h3>{ todo_text }</h3>
+		<h3>{ todo_note.Title }</h3>
 	</div>
 }
