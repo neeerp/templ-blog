@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"blog/templates"
+	"github.com/neeerp/templ-blog/templates"
 
 	"github.com/a-h/templ"
 	"net/http"

@@ -1,4 +1,4 @@
-module blog
+module github.com/neeerp/templ-blog
 
 go 1.22.0
 
