@@ -2,20 +2,26 @@ package templates
 
 import "strings"
 
-templ Page(title ...string) {
+templ Page(page_title ...string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
-			<title>
-				if len(title) == 0 {
-					Hello World
-				} else {
-					{ strings.Join(title[:], "") }
-				}
-			</title>
+			@title(page_title)
 		</head>
 		<body>
 			{ children... }
 		</body>
 	</html>
+}
+
+// The naming here isn't great. I need to figure out
+// a nicer pattern for 'default args'. This will do for now.
+templ title(page_title []string) {
+	<title>
+		if len(page_title) == 0 {
+			Hello World
+		} else {
+			{ strings.Join(page_title[:], "") }
+		}
+	</title>
 }
