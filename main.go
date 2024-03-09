@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	component := templates.Hello("John")
+	component := templates.Home()
 	http.Handle("/", templ.Handler(component))
 
 	fmt.Println("Listening on :3000")
