@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+
+	"blog/templates"
+
 	"github.com/a-h/templ"
 	"net/http"
 )
 
 func main() {
-	component := hello("John")
+	component := templates.Hello("John")
 	http.Handle("/", templ.Handler(component))
 
 	fmt.Println("Listening on :3000")
